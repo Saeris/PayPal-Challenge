@@ -1,0 +1,46 @@
+@import url("@public/fonts/index.scss");
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  font: {
+    size: 1.6rem;
+    family: "PayPal-Sans", "Open-Sans", sans-serif;
+  }
+  line-height: 1.8;
+
+  > div {
+    width: 100%;
+    height: 100vh;
+  }
+
+  button {
+    border: none;
+    background: none;
+
+    &:active {
+      outline: none;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    li {
+      width: auto;
+    }
+  }
+}

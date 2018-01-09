@@ -1,0 +1,235 @@
+{
+  "name": "paypal-client",
+  "main": "dist/app.js",
+  "version": "0.4.0",
+  "author": "Drake Costa <drake@saeris.io> (http://saeris.io/)",
+  "scripts": {
+    "precommit": "lint-staged",
+    "clean": "npm cache clean && del-cli node_modules",
+    "clean:dist": "del-cli dist",
+    "preclean:install": "npm run clean",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect",
+    "test": "cross-env NODE_ENV=test nyc ava --verbose --color --tap",
+    "test:watch": "ava --watch",
+    "coverage": "cross-env NODE_ENV=test nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "coverage:report": "cross-env NODE_ENV=test nyc report --color",
+    "build": "npm run build:dev",
+    "prebuild:dev": "npm run clean:dist",
+    "build:dev": "cross-env NODE_ENV=development npm run webpack -- --progress --profile --colors --config webpack.config.dev.babel.js",
+    "prebuild:prod": "npm run clean:dist",
+    "build:prod": "cross-env NODE_ENV=production npm run webpack -- --progress --profile --colors",
+    "start": "npm run server:dev",
+    "server": "npm run server:dev",
+    "server:dev": "cross-env NODE_ENV=development npm run webpack-dev-server -- --progress --profile --watch --colors",
+    "server:prod": "http-server dist --cors",
+    "webpack": "webpack",
+    "webpack-dev-server": "webpack-dev-server"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome": "^1.0.1",
+    "@fortawesome/fontawesome-free-solid": "^5.0.1",
+    "@fortawesome/react-fontawesome": "^0.0.16",
+    "accounting": "^0.4.1",
+    "apollo-cache-inmemory": "^1.1.3",
+    "apollo-client": "^2.1.0",
+    "apollo-link": "^1.0.5",
+    "apollo-link-batch-http": "^1.0.2",
+    "apollo-link-retry": "^1.0.2",
+    "babel-plugin-react-css-modules": "3.3.1",
+    "bootstrap": "4.0.0-alpha.6",
+    "classnames": "^2.2.5",
+    "decko": "^1.2.0",
+    "history": "^4.7.2",
+    "hoist-non-react-statics": "^2.3.1",
+    "include-media": "^1.4.9",
+    "linkstate": "^1.1.0",
+    "material-ui": "^1.0.0-beta.22",
+    "material-ui-icons": "^1.0.0-beta.17",
+    "preact": "^8.2.6",
+    "preact-compat": "^3.17.0",
+    "prop-types": "^15.5.10",
+    "react-apollo": "^2.0.1",
+    "react-hot-loader": "3.1.1",
+    "react-infinite-scroller": "^1.1.1",
+    "react-number-format": "^3.1.0",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "5.0.0-alpha.7",
+    "react-text-mask": "^5.0.2",
+    "recompose": "^0.26.0",
+    "redux": "^3.7.2",
+    "redux-form": "^7.2.0",
+    "redux-form-material-ui": "^5.0.0-beta.2",
+    "redux-logger": "^3.0.6",
+    "typeface-open-sans": "^0.0.45",
+    "typeface-roboto": "^0.0.45",
+    "whatwg-fetch": "^2.0.0"
+  },
+  "devDependencies": {
+    "alias-quokka-plugin": "^0.1.0",
+    "autoprefixer": "^7.2.1",
+    "ava": "^0.24.0",
+    "babel-cli": "7.0.0-beta.3",
+    "babel-core": "7.0.0-beta.3",
+    "babel-eslint": "^8.0.3",
+    "babel-loader": "7.1.2",
+    "babel-minify-webpack-plugin": "^0.2.0",
+    "babel-plugin-espower": "^2.3.2",
+    "babel-plugin-inline-dotenv": "^1.1.1",
+    "babel-plugin-inline-replace-variables": "^1.3.1",
+    "babel-plugin-istanbul": "^4.1.5",
+    "babel-plugin-lodash": "^3.2.11",
+    "babel-plugin-provide-modules": "^1.0.3",
+    "babel-plugin-transform-runtime": "7.0.0-beta.3",
+    "babel-plugin-webpack-alias": "2.1.2",
+    "babel-polyfill": "7.0.0-beta.3",
+    "babel-preset-env": "7.0.0-beta.3",
+    "babel-preset-es2015": "7.0.0-beta.3",
+    "babel-preset-flow": "7.0.0-beta.3",
+    "babel-preset-power-assert": "1.0.0",
+    "babel-preset-react": "7.0.0-beta.3",
+    "babel-preset-stage-0": "7.0.0-beta.3",
+    "babel-register": "7.0.0-beta.3",
+    "babel-runtime": "7.0.0-beta.3",
+    "browser-sync": "^2.18.13",
+    "browser-sync-webpack-plugin": "^1.2.0",
+    "codecov": "^3.0.0",
+    "copy-webpack-plugin": "^4.2.3",
+    "cross-env": "5.1.0",
+    "css-loader": "^0.28.7",
+    "del-cli": "^1.1.0",
+    "enzyme": "3.1.0",
+    "eslint": "4.12.1",
+    "eslint-import-resolver-webpack": "^0.8.3",
+    "eslint-plugin-ava": "4.2.2",
+    "eslint-plugin-compat": "2.0.1",
+    "eslint-plugin-flowtype": "^2.35.1",
+    "eslint-plugin-graphql": "1.4.0-1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "21.2.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^7.3.0",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "favicons-webpack-plugin": "^0.0.7",
+    "file-loader": "^1.1.5",
+    "flow": "^0.2.3",
+    "flow-bin": "^0.57.3",
+    "graphql-tag": "^2.4.2",
+    "html-webpack-plugin": "^2.30.1",
+    "http-server": "^0.10.0",
+    "husky": "^0.14.3",
+    "ignore-loader": "^0.1.2",
+    "istanbul": "^0.4.5",
+    "lint-staged": "^4.2.1",
+    "lodash": "^4.17.4",
+    "lodash-webpack-plugin": "^0.11.4",
+    "node-sass": "^4.5.3",
+    "nyc": "^11.2.1",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-flexbugs-fixes": "^3.2.0",
+    "postcss-load-config": "^1.0.0",
+    "postcss-loader": "^2.0.6",
+    "postcss-scss": "^1.0.2",
+    "power-assert": "^1.4.4",
+    "prettier": "^1.7.0",
+    "react-addons-test-utils": "^15.6.0",
+    "resolve-url-loader": "^2.1.0",
+    "sass-lint": "^1.11.1",
+    "sass-loader": "^6.0.6",
+    "snyk": "^1.42.7",
+    "style-loader": "^0.19.0",
+    "stylelint": "^8.1.1",
+    "stylelint-no-unsupported-browser-features": "^1.0.0",
+    "stylelint-order": "^0.7.0",
+    "stylelint-scss": "^2.1.0",
+    "svg-react-loader": "^0.4.5",
+    "sw-precache-webpack-plugin": "^0.11.4",
+    "tap-nyan": "^1.1.0",
+    "url-loader": "^0.6.2",
+    "webpack": "^3.6.0",
+    "webpack-bundle-analyzer": "^2.9.0",
+    "webpack-dev-server": "^2.8.2",
+    "webpack-hot-middleware": "^2.19.1",
+    "webpack-pwa-manifest": "^3.3.0"
+  },
+  "postcss": {
+    "plugins": {
+      "postcss-cssnext": {
+        "browsers": [
+          "last 2 versions"
+        ]
+      },
+      "postcss-flexbugs-fixes": {}
+    }
+  },
+  "browserslist": {
+    "development": [
+      "last 2 versions"
+    ],
+    "production": [
+      "last 4 versions"
+    ]
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "snyk": true,
+  "quokka": {
+    "babel": {
+      "env": "test",
+      "polyfill": true
+    },
+    "plugins": [
+      "alias-quokka-plugin"
+    ],
+    "alias": {
+      "@": "./src",
+      "@components": "./src/app/components",
+      "@models": "./src/app/models",
+      "@public": "./public",
+      "@routes": "./src/app/routes",
+      "@services": "./src/app/services"
+    }
+  },
+  "ava": {
+    "files": [
+      "!src/**/*.js",
+      "!**/webpack.config.js",
+      "src/**/__TEST__/*.spec.js"
+    ],
+    "source": [
+      "src/**/*.{js,jsx}",
+      "!dist/**/*"
+    ],
+    "concurrency": 5,
+    "failFast": true,
+    "failWithoutAssertions": false,
+    "tap": "tap-nyan",
+    "powerAssert": true,
+    "require": [
+      "babel-register",
+      "babel-polyfill",
+      "isomorphic-fetch"
+    ],
+    "babel": "inherit"
+  },
+  "nyc": {
+    "require": [
+      "babel-register"
+    ],
+    "cache": true,
+    "sourceMap": false,
+    "instrument": false,
+    "exclude": [
+      "src/**/__TEST__/*.spec.js",
+      "build",
+      "dist"
+    ]
+  }
+}

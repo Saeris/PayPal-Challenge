@@ -1,0 +1,16 @@
+[ignore]
+.*/public
+.*/dist
+.*/node_modules
+
+[include]
+
+[options]
+module.file_ext=.js
+module.file_ext=.json
+module.file_ext=.jsx
+module.file_ext=.css
+module.file_ext=.scss
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable
+esproposal.decorators=ignore

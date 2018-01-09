@@ -1,0 +1,205 @@
+:global(#history) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  .completed {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    width: 80%;
+    max-width: 128rem;
+    padding: 2rem 2rem 1.5rem;
+    margin: 1rem 0 2rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-family: "PayPal-Sans", "Open-Sans", sans-serif;
+    background-color: #fff;
+
+    h3 {
+      margin-bottom: 1.5rem;
+      font: {
+        size: 1.8rem;
+        weight: bold;
+      }
+      line-height: 2rem;
+      text-transform: none;
+    }
+  }
+
+  :global(.transactions) {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .payment {
+      display: flex;
+      flex: 1 0 auto;
+      flex-direction: column;
+      width: 100%;
+
+      &:nth-child(odd) {
+        .basics {
+          border-left-color: #f5f7fa;
+          background-color: #f5f7fa;
+        }
+      }
+
+      &:hover {
+        .basics {
+          border-left-color: #009cde;
+          background-color: #eee;
+        }
+      }
+
+      .row {
+        display: flex;
+        flex: 1 0 auto;
+        width: 100%;
+        padding: 0;
+      }
+
+      .basics.active {
+        border-left-color: #009cde;
+      }
+
+      .basics {
+        height: 8rem;
+        border-left: 0.4rem solid #fff;
+
+        > div {
+          margin: 0;
+        }
+
+        .date {
+          display: flex;
+          flex: 0 0 auto;
+          flex-direction: column;
+          width: 8rem;
+          padding: 1rem;
+
+          span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .month {
+            height: 3rem;
+            font-size: 1.3rem;
+            line-height: 1.5rem;
+            text-transform: uppercase;
+          }
+
+          .day {
+            height: 3rem;
+            font: {
+              height: 2rem;
+              size: 1.5rem;
+              weight: bold;
+            }
+          }
+
+          .year {
+            position: absolute;
+            width: 0;
+            height: 0;
+            padding: 0;
+            border: 0;
+            overflow: hidden;
+          }
+        }
+
+        .description {
+          display: flex;
+          flex: 0 1 auto;
+          flex-direction: column;
+          width: 100%;
+          padding: {
+            top: 1rem;
+            right: 3rem;
+            bottom: 1rem;
+            left: 1rem;
+          }
+
+          .row {
+            justify-content: space-between;
+          }
+
+          span {
+            display: flex;
+            align-items: center;
+            line-height: 1.5rem;
+          }
+
+          .top {
+            height: 3rem;
+
+            .username {
+              justify-content: flex-start;
+              font-size: 1.5rem;
+            }
+
+            .amount {
+              justify-content: flex-end;
+              font-size: 1.8rem;
+            }
+
+            .positive {
+              color: #3ea134;
+            }
+          }
+
+          .bottom {
+            height: 3rem;
+
+            .type {
+              justify-content: flex-start;
+              font-size: 1.3rem;
+            }
+
+            .category {
+              justify-content: flex-end;
+              font-size: 1.3rem;
+            }
+          }
+        }
+      }
+
+      .details {
+        padding: {
+          top: 2.5rem;
+          right: 8rem;
+          bottom: 2.5rem;
+          left: 8rem;
+        }
+        background-color: #fff;
+        border: {
+          top: 0.1rem solid #cbd2d6;
+          left: 0.4rem solid #009cde;
+        }
+
+        .column {
+          display: flex;
+          flex-direction: column;
+          width: 50%;
+          padding: {
+            right: 1rem;
+            left: 1rem;
+          }
+
+          .info {
+            display: flex;
+            flex: 1 1 auto;
+            flex-direction: column;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "env": {
+    "test": {
+      "sourceMaps": "inline",
+      "plugins": [
+        "istanbul",
+        ["babel-plugin-webpack-alias", { "config": "./webpack.config.js"  }],
+        ["provide-modules", {
+          "classnames": "classNames",
+          "core-js/fn/promise": "Promise",
+          "decko": [
+            "debounce",
+            "memoize"
+          ],
+          "linkstate": "linkState",
+          "preact": [
+            "h"
+          ],
+          "react": [
+            "Component",
+            { "PureComponent": "Pure" },
+            "React"
+          ],
+          "react-apollo": [
+            "graphql",
+            "gql"
+          ],
+          "react-redux": [
+            "connect"
+          ],
+          "regenerator-runtime": "regeneratorRuntime",
+          "prop-types": "PropTypes"
+        }],
+        ["inline-replace-variables", {
+          "ENV": { "type": "node", "replacement": "process.env.NODE_ENV" }
+        }],
+        ["transform-react-jsx", { "pragma": "h" }],
+        ["react-css-modules", {
+          "filetypes": { ".scss": { "syntax": "postcss-scss" } },
+          "generateScopedName": "[local]_[hash:base64:5]",
+          "webpackHotModuleReloading": false
+        }]
+      ],
+      "presets": [
+        "babel-preset-power-assert",
+        ["env", {
+          "targets": { "node": "current" },
+          "useBuiltIns": "usage"
+        }],
+        "stage-0",
+        "flow"
+      ]
+    },
+    "development": {
+      "plugins": [
+        ["provide-modules", {
+          "classnames": "classNames",
+          "core-js/fn/promise": "Promise",
+          "decko": [
+            "debounce",
+            "memoize"
+          ],
+          "linkstate": "linkState",
+          "preact": [
+            "h"
+          ],
+          "react": [
+            "Component",
+            { "PureComponent": "Pure" },
+            "React"
+          ],
+          "react-apollo": [
+            "graphql",
+            "gql"
+          ],
+          "react-redux": [
+            "connect"
+          ],
+          "regenerator-runtime": "regeneratorRuntime",
+          "prop-types": "PropTypes"
+        }],
+        ["babel-plugin-webpack-alias", { "config": "./webpack.config.js"  }],
+        ["inline-replace-variables", {
+          "ENV": { "type": "node", "replacement": "process.env.NODE_ENV" }
+        }],
+        ["transform-react-jsx", { "pragma": "h" }]
+      ],
+      "presets": [
+        ["env", {
+          "targets": { "browsers": [ "last 2 versions", "not ie <= 11" ] },
+          "modules": false,
+          "useBuiltIns": "usage"
+        }],
+        "stage-0",
+        "flow"
+      ]
+    },
+    "production": {
+      "plugins": [
+        ["provide-modules", {
+          "classnames": "classNames",
+          "core-js/fn/promise": "Promise",
+          "decko": [
+            "debounce",
+            "memoize"
+          ],
+          "linkstate": "linkState",
+          "preact": [
+            "h"
+          ],
+          "react": [
+            "Component",
+            { "PureComponent": "Pure" },
+            "React"
+          ],
+          "react-apollo": [
+            "graphql",
+            "gql"
+          ],
+          "react-redux": [
+            "connect"
+          ],
+          "regenerator-runtime": "regeneratorRuntime",
+          "prop-types": "PropTypes"
+        }],
+        ["babel-plugin-webpack-alias", { "config": "./webpack.config.js"  }],
+        ["inline-replace-variables", {
+          "ENV": { "type": "node", "replacement": "process.env.NODE_ENV" }
+        }],
+        ["transform-react-jsx", { "pragma": "h" }],
+        ["transform-runtime", {
+          "helpers": false,
+          "polyfill": false,
+          "regenerator": true
+        }]
+      ],
+      "presets": [
+        ["env", {
+          "targets": { "browsers": [ "last 2 versions", "not ie <= 11" ] },
+          "modules": false,
+          "useBuiltIns": "usage"
+        }],
+        "stage-0",
+        "flow"
+      ]
+    }
+  }
+}

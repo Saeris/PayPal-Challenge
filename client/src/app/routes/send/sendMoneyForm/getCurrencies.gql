@@ -1,0 +1,8 @@
+query getCurrencies {
+  results: __type(name: "Currencies") {
+    currencies: enumValues {
+      code: name
+      name: description
+    }
+  }
+}

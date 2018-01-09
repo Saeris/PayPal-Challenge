@@ -1,0 +1,50 @@
+:global(#home) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  .navigation {
+    display: flex;
+    flex: 0 0 auto;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+
+    .btn {
+      display: flex;
+      flex: 0 0 auto;
+      flex-direction: column;
+      align-items: center;
+      width: 17.5rem;
+      padding: 0 1.5rem;
+      color: #0070ba;
+      text-align: center;
+
+      :global(.icon) {
+        display: block;
+        width: 7.2rem;
+        height: 7.2rem;
+        margin-bottom: 1rem;
+        border: 0.1rem solid #0070ba;
+        border-radius: 50%;
+        line-height: 6rem;
+        color: #0070ba;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.8);
+        transition: background-color 0.4s ease-in-out;
+      }
+
+      &:hover {
+        color: rgba(0, 48, 135, 0.85);
+        text-decoration: none;
+
+        :global(.icon) {
+          color: #fff;
+          background-color: rgba(0, 48, 135, 0.85);
+        }
+      }
+    }
+  }
+}

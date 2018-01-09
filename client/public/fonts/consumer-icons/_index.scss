@@ -1,0 +1,693 @@
+@font-face {
+  font: {
+    family: "consumer-icons";
+    style: normal;
+    weight: 400;
+  }
+  src: url("https://www.paypalobjects.com/ui-web/iconfont-consumer/3-4-0/fonts/ConsumerIcons-Regular.eot");
+  src:
+    url("https://www.paypalobjects.com/ui-web/iconfont-consumer/3-4-0/fonts/ConsumerIcons-Regular.eot?#iefix") format("embedded-opentype"),
+    url("https://www.paypalobjects.com/ui-web/iconfont-consumer/3-4-0/fonts/ConsumerIcons-Regular.woff") format("woff"),
+    url("https://www.paypalobjects.com/ui-web/iconfont-consumer/3-4-0/fonts/ConsumerIcons-Regular.ttf") format("truetype"),
+    url("https://www.paypalobjects.com/ui-web/iconfont-consumer/3-4-0/fonts/ConsumerIcons-Regular.svg#69ac2c9fc1e0803e59e06e93859bed03") format("svg");
+}
+
+:global(.icon) {
+  font: {
+    family: "consumer-icons";
+    variant: normal;
+    style: normal;
+    weight: normal;
+  }
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 0;
+  text-transform: none;
+  speak: none;
+}
+
+:global(.icon-small) {
+  &::before {
+    font-size: 1.58rem;
+  }
+}
+
+:global(.icon-medium) {
+  &::before {
+    font-size: 4.16rem;
+  }
+}
+
+:global(.icon-large) {
+  &::before {
+    font-size: 7.8rem;
+  }
+}
+
+:global(.icon-burger-small) {
+  &::before {
+    content: "\e000";
+  }
+}
+
+:global(.icon-slider-small) {
+  &::before {
+    content: "\e001";
+  }
+}
+
+:global(.icon-slider-half-small) {
+  &::before {
+    content: "\e002";
+  }
+}
+
+:global(.icon-close-small) {
+  &::before {
+    content: "\e003";
+  }
+}
+
+:global(.icon-add-small) {
+  &::before {
+    content: "\e004";
+  }
+}
+
+:global(.icon-arrow-down-small) {
+  &::before {
+    content: "\e005";
+  }
+}
+
+:global(.icon-arrow-up-small) {
+  &::before {
+    content: "\e006";
+  }
+}
+
+:global(.icon-arrow-left-small) {
+  &::before {
+    content: "\e007";
+  }
+}
+
+:global(.icon-arrow-right-small) {
+  &::before {
+    content: "\e008";
+  }
+}
+
+:global(.icon-arrow-down-half-small) {
+  &::before {
+    content: "\e009";
+  }
+}
+
+:global(.icon-arrow-up-half-small) {
+  &::before {
+    content: "\e010";
+  }
+}
+
+:global(.icon-arrow-left-half-small) {
+  &::before {
+    content: "\e011";
+  }
+}
+
+:global(.icon-arrow-right-half-small) {
+  &::before {
+    content: "\e012";
+  }
+}
+
+:global(.icon-clear-half-small) {
+  &::before {
+    content: "\e013";
+  }
+}
+
+:global(.icon-checkmark-small) {
+  &::before {
+    content: "\e014";
+  }
+}
+
+:global(.icon-checkmark-small-bold) {
+  &::before {
+    content: "\e015";
+  }
+}
+
+:global(.icon-action-arrow-half-small) {
+  &::before {
+    content: "\e016";
+  }
+}
+
+:global(.icon-tooltip-outline-small) {
+  &::before {
+    content: "\e017";
+  }
+}
+
+:global(.icon-tooltip-small) {
+  &::before {
+    content: "\e018";
+  }
+}
+
+:global(.icon-info-small) {
+  &::before {
+    content: "\e019";
+  }
+}
+
+:global(.icon-positive-small) {
+  &::before {
+    content: "\e020";
+  }
+}
+
+:global(.icon-attention-small) {
+  &::before {
+    content: "\e021";
+  }
+}
+
+:global(.icon-critical-small) {
+  &::before {
+    content: "\e022";
+  }
+}
+
+:global(.icon-info-large) {
+  &::before {
+    content: "\e023";
+  }
+}
+
+:global(.icon-positive-large) {
+  &::before {
+    content: "\e024";
+  }
+}
+
+:global(.icon-attention-large) {
+  &::before {
+    content: "\e025";
+  }
+}
+
+:global(.icon-critical-large) {
+  &::before {
+    content: "\e026";
+  }
+}
+
+:global(.icon-pp-logo) {
+  &::before {
+    content: "\e029";
+  }
+}
+
+:global(.icon-visa-logo) {
+  &::before {
+    content: "\e030";
+  }
+}
+
+:global(.icon-mastercard-logo) {
+  &::before {
+    content: "\e031";
+  }
+}
+
+:global(.icon-maestro-logo) {
+  &::before {
+    content: "\e032";
+  }
+}
+
+:global(.icon-amex-logo) {
+  &::before {
+    content: "\e033";
+  }
+}
+
+:global(.icon-discover-logo) {
+  &::before {
+    content: "\e034";
+  }
+}
+
+:global(.icon-card-half-solid) {
+  &::before {
+    content: "\e035";
+  }
+}
+
+:global(.icon-bank-half-solid) {
+  &::before {
+    content: "\e036";
+  }
+}
+
+:global(.icon-profile-large) {
+  &::before {
+    content: "\e037";
+  }
+}
+
+:global(.icon-profile-add-large) {
+  &::before {
+    content: "\e038";
+  }
+}
+
+:global(.icon-notification-small) {
+  &::before {
+    content: "\e039";
+  }
+}
+
+:global(.icon-settings-small) {
+  &::before {
+    content: "\e040";
+  }
+}
+
+:global(.icon-profile-small) {
+  &::before {
+    content: "\e041";
+  }
+}
+
+:global(.icon-funnel-small) {
+  &::before {
+    content: "\e042";
+  }
+}
+
+:global(.icon-delete-small) {
+  &::before {
+    content: "\e043";
+  }
+}
+
+:global(.icon-edit-small) {
+  &::before {
+    content: "\e044";
+  }
+}
+
+:global(.icon-lock-small) {
+  &::before {
+    content: "\e045";
+  }
+}
+
+:global(.icon-pdf-small) {
+  &::before {
+    content: "\e046";
+  }
+}
+
+:global(.icon-contact-small) {
+  &::before {
+    content: "\e047";
+  }
+}
+
+:global(.icon-undo-small) {
+  &::before {
+    content: "\e048";
+  }
+}
+
+:global(.icon-cancel-small) {
+  &::before {
+    content: "\e049";
+  }
+}
+
+:global(.icon-simple-list-small) {
+  &::before {
+    content: "\e050";
+  }
+}
+
+:global(.icon-detailed-list-small) {
+  &::before {
+    content: "\e051";
+  }
+}
+
+:global(.icon-print-small) {
+  &::before {
+    content: "\e052";
+  }
+}
+
+:global(.icon-camera-small) {
+  &::before {
+    content: "\e053";
+  }
+}
+
+:global(.icon-info-outline-small) {
+  &::before {
+    content: "\e054";
+  }
+}
+
+:global(.icon-us-dollar-outline-small) {
+  &::before {
+    content: "\e055";
+  }
+}
+
+:global(.icon-calendar-half-small) {
+  &::before {
+    content: "\e056";
+  }
+}
+
+:global(.icon-hiper-logo) {
+  &::before {
+    content: "\e057";
+  }
+}
+
+:global(.icon-hipercard-logo) {
+  &::before {
+    content: "\e058";
+  }
+}
+
+:global(.icon-elo-logo) {
+  &::before {
+    content: "\e059";
+  }
+}
+
+:global(.icon-star-small) {
+  &::before {
+    content: "\e060";
+  }
+}
+
+:global(.icon-jcb-logo) {
+  &::before {
+    content: "\e061";
+  }
+}
+
+:global(.icon-attention-outline-small) {
+  &::before {
+    content: "\e062";
+  }
+}
+
+:global(.icon-unionpay-logo) {
+  &::before {
+    content: "\e063";
+  }
+}
+
+:global(.icon-search-small) {
+  &::before {
+    content: "\e064";
+  }
+}
+
+:global(.icon-desktop-small) {
+  &::before {
+    content: "\e065";
+  }
+}
+
+:global(.icon-mobile-small) {
+  &::before {
+    content: "\e066";
+  }
+}
+
+:global(.icon-laptop-small) {
+  &::before {
+    content: "\e067";
+  }
+}
+
+:global(.icon-tablet-small) {
+  &::before {
+    content: "\e068";
+  }
+}
+
+:global(.icon-send-money) {
+  &::before {
+    content: "\e500";
+  }
+}
+
+:global(.icon-request-money) {
+  &::before {
+    content: "\e501";
+  }
+}
+
+:global(.icon-photo) {
+  &::before {
+    content: "\e502";
+  }
+}
+
+:global(.icon-gift-cards) {
+  &::before {
+    content: "\e503";
+  }
+}
+
+:global(.icon-credit-card) {
+  &::before {
+    content: "\e504";
+  }
+}
+
+:global(.icon-truck) {
+  &::before {
+    content: "\e505";
+  }
+}
+
+:global(.icon-email) {
+  &::before {
+    content: "\e506";
+  }
+}
+
+:global(.icon-email-solid) {
+  &::before {
+    content: "\e507";
+  }
+}
+
+:global(.icon-bank-check) {
+  &::before {
+    content: "\e508";
+  }
+}
+
+:global(.icon-calendar) {
+  &::before {
+    content: "\e509";
+  }
+}
+
+:global(.icon-holiday) {
+  &::before {
+    content: "\e510";
+  }
+}
+
+:global(.icon-gift) {
+  &::before {
+    content: "\e511";
+  }
+}
+
+:global(.icon-wallet) {
+  &::before {
+    content: "\e512";
+  }
+}
+
+:global(.icon-play-video) {
+  &::before {
+    content: "\e513";
+  }
+}
+
+:global(.icon-heart) {
+  &::before {
+    content: "\e514";
+  }
+}
+
+:global(.icon-shield) {
+  &::before {
+    content: "\e515";
+  }
+}
+
+:global(.icon-tunes) {
+  &::before {
+    content: "\e516";
+  }
+}
+
+:global(.icon-invoice) {
+  &::before {
+    content: "\e517";
+  }
+}
+
+:global(.icon-shopping-bag) {
+  &::before {
+    content: "\e518";
+  }
+}
+
+:global(.icon-phone) {
+  &::before {
+    content: "\e519";
+  }
+}
+
+:global(.icon-phone-solid) {
+  &::before {
+    content: "\e520";
+  }
+}
+
+:global(.icon-tag) {
+  &::before {
+    content: "\e521";
+  }
+}
+
+:global(.icon-delivery) {
+  &::before {
+    content: "\e522";
+  }
+}
+
+:global(.icon-questionmark) {
+  &::before {
+    content: "\e523";
+  }
+}
+
+:global(.icon-cut-coupons) {
+  &::before {
+    content: "\e524";
+  }
+}
+
+:global(.icon-register) {
+  &::before {
+    content: "\e525";
+  }
+}
+
+:global(.icon-house) {
+  &::before {
+    content: "\e526";
+  }
+}
+
+:global(.icon-gift-card) {
+  &::before {
+    content: "\e527";
+  }
+}
+
+:global(.icon-messages) {
+  &::before {
+    content: "\e528";
+  }
+}
+
+:global(.icon-add-money) {
+  &::before {
+    content: "\e529";
+  }
+}
+
+:global(.icon-send-check) {
+  &::before {
+    content: "\e530";
+  }
+}
+
+:global(.icon-paypal-me) {
+  &::before {
+    content: "\e531";
+  }
+}
+
+:global(.icon-pp-logo-outline) {
+  &::before {
+    content: "\e532";
+  }
+}
+
+:global(.icon-money-bag) {
+  &::before {
+    content: "\e533";
+  }
+}
+
+:global(.icon-chip-pin) {
+  &::before {
+    content: "\e534";
+  }
+}
+
+:global(.icon-boleto-ready) {
+  &::before {
+    content: "\e535";
+  }
+}
+
+:global(.icon-boleto-topup) {
+  &::before {
+    content: "\e536";
+  }
+}
+
+:global(.icon-clock-pay) {
+  &::before {
+    content: "\e537";
+  }
+}
+
+:global(.icon-speeding-cart) {
+  &::before {
+    content: "\e538";
+  }
+}
+
+:global(.icon-international-transfer) {
+  &::before {
+    content: "\e539";
+  }
+}
+
+:global(.icon-link-small) {
+  &::before {
+    content: "\e540";
+  }
+}

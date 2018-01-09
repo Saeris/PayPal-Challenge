@@ -1,0 +1,20 @@
+mutation sendMoney($input: paymentInput) {
+  sendPayment(input: $input) {
+    id
+    to {
+      id
+      type
+      username
+      name
+      fullName
+      email
+    }
+    type
+    category
+    amount
+    currency
+    status
+    purpose
+    sent
+  }
+}

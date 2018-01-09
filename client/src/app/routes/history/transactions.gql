@@ -1,0 +1,44 @@
+query transactions($username: String! $first: Int! $after: String) {
+  user(where: { field: Username, equals: $username }) {
+    id
+    type
+    username
+    email
+    balance
+    transactionsCount
+    transactions(first: $first after: $after orderBy: { field: sent sort: desc }) {
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+      edges {
+        payment: node {
+          id
+          to {
+            id
+            type
+            username
+            name
+            fullName
+            email
+          }
+          from {
+            id
+            type
+            username
+            name
+            fullName
+            email
+          }
+          type
+          category
+          amount
+          currency
+          status
+          purpose
+          sent
+        }
+      }
+    }
+  }
+}

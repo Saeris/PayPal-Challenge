@@ -1,0 +1,73 @@
+:global(#send) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  section {
+    display: flex;
+    flex: 0 0 auto;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+
+    .state {
+      display: flex;
+      flex: 0 0 auto;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1.5rem;
+      color: #0070ba;
+      text-align: center;
+
+      span {
+        margin-bottom: 2rem;
+      }
+
+      :global(.icon) {
+        display: block;
+        width: 12rem;
+        height: 12rem;
+        margin-top: 2rem;
+        border: 0.3rem solid #0070ba;
+        border-radius: 50%;
+        line-height: 8rem;
+        color: #0070ba;
+        text-decoration: none;
+        background: rgba(255, 255, 255, 0.8);
+        transition: background-color 0.4s ease-in-out;
+      }
+    }
+
+    .loading {
+      :global(.icon) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .success {
+      :global(.icon) {
+        border-color: #3ea134;
+        color: #3ea134;
+      }
+
+      :global(.icon-medium::before) {
+        font-size: 9.093rem;
+      }
+    }
+
+    .failure {
+      :global(.icon) {
+        border-color: #d20000;
+        color: #d20000;
+      }
+
+      :global(.icon-medium::before) {
+        font-size: 6.899rem;
+      }
+    }
+  }
+}
