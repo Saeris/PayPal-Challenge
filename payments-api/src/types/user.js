@@ -1,18 +1,19 @@
 import {
   nodeInterface,
-  applyFilters,
   createFilter,
   createInput,
   createOrder,
   create,
   read,
   update,
-  destroy
+  destroy,
+  where,
+  orderBy
 } from "@/utilities"
 import { PaymentConnection, PaymentFilter, PaymentOrder } from "./payment"
 import { AccountTypes } from "./enums"
 
-export const User = new GqlObject({
+export const Definition = new GqlObject({
   name: `User`,
   description: `A Flickr User.`,
   interfaces: [nodeInterface],
@@ -116,12 +117,7 @@ export const User = new GqlObject({
     transactions: {
       type: PaymentConnection,
       description: `A list of the User's payment transactions.`,
-      args: {
-        ...connectionArgs,
-        filter: { type: PaymentFilter },
-        orderBy: { type: PaymentOrder }
-      },
-      orderBy: ({ orderBy: { field, sort } }) => ({ [field || `id`]: sort || `desc` }),
+      args: { ...connectionArgs, ...PaymentFilter, ...PaymentOrder },
       sortable: true,
       // for joinMonster to fetch this field, it needs to go through a junction-table
       junction: {
@@ -131,14 +127,16 @@ export const User = new GqlObject({
           (transactions, payments, args) => `${transactions}.payment = ${payments}.id`
         ]
       },
-      resolve: async ({ transactions }, args) => connectionFromArray(await applyFilters(transactions, args), args)
+      where,
+      orderBy,
+      resolve: ({ transactions }, args) => connectionFromArray(transactions, args)
     }
   })
 })
 
-export const UserFilter = createFilter(User)
-export const UserInput = createInput(User)
-export const UserOrder = createOrder(User)
+export const Filter = createFilter(Definition)
+export const Input = createInput(Definition)
+export const Order = createOrder(Definition)
 
 // This will require us to use one of the following in our user query
 const UserWhereTypes = new GqlEnum({
@@ -164,7 +162,7 @@ const UserWhere = new GqlInput({
 
 export const Queries = {
   user: {
-    type: User,
+    type: Definition,
     description: `Gets a User by their ID.`,
     args: {
       where: {
@@ -179,30 +177,29 @@ export const Queries = {
         default: return Undefined // eslint-disable-line
       }
     },
-    resolve: (parent, args, context, info) => read(context, info)
+    resolve: read
   },
   users: {
-    type: new GqlList(User),
+    type: new GqlList(Definition),
     description: `Gets a list of all Users.`,
-    args: {
-      filter: { type: UserFilter },
-      orderBy: { type: UserOrder }
-    },
-    resolve: async (parent, args, context, info) => applyFilters(await read(context, info), args)
+    args: { ...Filter, ...Order },
+    where,
+    orderBy,
+    resolve: read
   }
 }
 
 export const Mutations = {
   createUser: {
-    type: User,
+    type: Definition,
     description: `Creates a new User`,
-    args: { input: { type: new GqlNonNull(UserInput) } },
+    args: { ...Input },
     resolve: (parent, { input }, { user }) => create(user, input)
   },
   updateUser: {
-    type: User,
+    type: Definition,
     description: `Updates an existing User, creates it if it does not already exist`,
-    args: { id: { type: new GqlNonNull(GqlID) }, input: { type: new GqlNonNull(UserInput) } },
+    args: { id: { type: new GqlNonNull(GqlID) }, ...Input },
     resolve: (parent, { id, input }, { user }) => update(user, id, input)
   },
   // we shouldn't actually ever hard-delete a user from the database, this is just used as an example
@@ -214,6 +211,11 @@ export const Mutations = {
   }
 }
 
-export const Definition = User
+export {
+  Definition as User,
+  Filter as UserFilter,
+  Input as UserInput,
+  Order as UserOrder
+}
 
 export default { Definition, Queries, Mutations }

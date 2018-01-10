@@ -1,4 +1,4 @@
-import { nodeInterface, createFilter, createInput, createOrder, NumberFilter, DateRange, read, update } from "@/utilities"
+import { nodeInterface, createFilter, createInput, createOrder, Range, DateRange, read, update, orderBy } from "@/utilities"
 import { sendPayment } from "@/resolvers"
 import { Categories, Currencies, Types, Status } from "./enums"
 import { User } from "./user"
@@ -23,7 +23,7 @@ const PaymentUser = new GqlInput({
   })
 })
 
-export const Payment = new GqlObject({
+export const Definition = new GqlObject({
   name: `Payment`,
   description: `A Payment Object`,
   interfaces: [nodeInterface],
@@ -73,7 +73,7 @@ export const Payment = new GqlObject({
       input: true,
       sortable: true,
       filter: {
-        type: NumberFilter,
+        type: Range,
         description: `A range of Amounts to filter by.`
       }
     },
@@ -120,7 +120,7 @@ export const Payment = new GqlObject({
       description: `Date and time on which the Payment was first sent.`,
       sqlColumn: `sent`,
       column: table => table.dateTime(`sent`).notNullable(),
-      orderBy: ({ orderBy: { sort } }) => ({ sent: sort || `desc` }),
+      orderBy,
       sortable: true,
       filter: {
         type: DateRange,
@@ -142,25 +142,25 @@ export const Payment = new GqlObject({
 })
 
 // https://github.com/graphql/graphql-relay-js
-export const { connectionType: PaymentConnection } = connectionDefinitions({ nodeType: Payment })
-export const PaymentFilter = createFilter(Payment)
-export const PaymentInput = createInput(Payment)
-export const PaymentOrder = createOrder(Payment)
+export const { connectionType: Connection } = connectionDefinitions({ nodeType: Definition })
+export const Filter = createFilter(Definition)
+export const Input = createInput(Definition)
+export const Order = createOrder(Definition)
 
 export const Queries = {
   payments: {
-    type: new GqlList(Payment),
+    type: new GqlList(Definition),
     description: `Get a list of Payments by their IDs.`,
     args: {
       id: {
         type: new GqlList(new GqlNonNull(GqlID)),
         description: `The IDs of the Payments to fetch. (Required)`
       },
-      filter: { type: PaymentFilter },
-      orderBy: { type: PaymentOrder }
+      ...Filter,
+      ...Order
     },
     where: (payments, args) => (args.id ? sqlString.escape(`${payments}.id IN (${args.id})`) : ``),
-    resolve: (parent, args, context, info) => read(context, info)
+    resolve: read
   }
 }
 
@@ -168,19 +168,25 @@ export const Mutations = {
   // in an actual production app, we should use the conext object to verify
   // that the requesting user can actually make the sendPayment request
   sendPayment: {
-    type: Payment,
+    type: Definition,
     description: `Creates a new Payment`,
-    args: { input: { type: PaymentInput } },
+    args: { ...Input },
     resolve: (parent, args, context) => sendPayment(args, context)
   },
   updatePayment: {
-    type: new GqlList(Payment),
+    type: new GqlList(Definition),
     description: `Updates an existing Payment, creates it if it does not already exist`,
-    args: { id: { type: GqlID }, input: { type: PaymentInput } },
+    args: { id: { type: GqlID }, ...Input },
     resolve: (parent, { id, input }, { payment }) => update(payment, id, input)
   }
 }
 
-export const Definition = Payment
+export {
+  Definition as Payment,
+  Connection as PaymentConnection,
+  Filter as PaymentFilter,
+  Input as PaymentInput,
+  Order as PaymentOrder
+}
 
 export default { Definition, Queries, Mutations }
