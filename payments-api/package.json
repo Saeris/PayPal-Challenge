@@ -22,7 +22,8 @@
     "coverage": "cross-env NODE_ENV=test nyc report --reporter=text-lcov > coverage.lcov && codecov",
     "coverage:report": "cross-env NODE_ENV=test nyc report --color",
     "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "prepublish": "npm run snyk-protect",
+    "prepare": "npm run snyk-protect"
   },
   "dependencies": {
     "apollo-server-hapi": "^1.1.2",
@@ -45,9 +46,10 @@
     "join-monster": "^2.0.15",
     "knex": "^0.14.2",
     "lodash": "^4.17.4",
-    "sqlite3": "^3.1.13",
+    "sqlite3": "^4.0.0",
     "sqlstring": "^2.3.0",
-    "winston": "^2.3.1"
+    "winston": "^2.3.1",
+    "snyk": "^1.83.0"
   },
   "devDependencies": {
     "apollo-cache-inmemory": "^1.1.2",
@@ -100,7 +102,6 @@
     "serverless-domain-manager": "^1.1.12",
     "serverless-offline": "^3.15.3",
     "serverless-webpack": "^4.0.0",
-    "snyk": "^1.42.6",
     "tap-nyan": "^1.1.0",
     "webpack": "^3.6.0",
     "webpack-node-externals": "^1.6.0"
